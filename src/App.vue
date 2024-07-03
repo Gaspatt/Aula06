@@ -58,29 +58,29 @@ function voltar() {
 
 <template>
     <form class="form" @submit.prevent="submit">
-        <label for="name">Informe seu nome:</label>
-        <input id="name" type="text" required>
+        <label for="name">Informe seu nome: <span class="ast">*</span></label>
+        <input id="name" type="text" required min="3" max="100">
 
 
-        <label for="email">Informe seu e-mail:</label>
+        <label for="email">Informe seu e-mail: <span class="ast">*</span></label>
         <input id="email" type="email" required>
 
-        <label for="senha">Informe sua senha:</label>
+        <label for="senha">Informe sua senha: <span class="ast">*</span></label>
         <input id="senha" type="password" required>
 
-        <label for="confirme">Confirme sua senha:</label>
+        <label for="confirme">Confirme sua senha: <span class="ast">*</span></label>
         <input id="confirme" type="password" required>
 
-        <label for="nascimento">Informe sua data de nascimento:</label>
+        <label for="nascimento">Informe sua data de nascimento: <span class="ast">*</span></label>
         <input id="nascimento" type="date" required>
 
-        <label for="adress">Informe seu endereço:</label>
+        <label for="adress">Informe seu endereço: <span class="ast">*</span></label>
         <input id="adress" type="text" required>
 
-        <label for="cidade">Informe sua cidade:</label>
+        <label for="cidade">Informe sua cidade: <span class="ast">*</span></label>
         <input id="cidade" type="text" required>
 
-        <label for="estado">Informe seu estado:</label>
+        <label for="estado">Informe seu estado: <span class="ast">*</span></label>
         <select id="estado" name="estado" required>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
@@ -111,13 +111,14 @@ function voltar() {
             <option value="TO">Tocantins</option>
         </select>
 
-        <label for="hobbies">Informe seu hobbie favorito:</label>
+        <label for="hobbies">Informe seu hobbie favorito: <span class="ast">*</span>
+        </label>
         <input id="hobbies" type="text" required>
 
-        <label for="linguagens">Informe as linguagens de programacão que você domina:</label>
+        <label for="linguagens">Informe as linguagens de programacão que você domina: <span class="ast">*</span></label>
         <input id="linguagens" type="text" required>
 
-        <label for="biografia">Escreva uma sua biografia:</label>
+        <label for="biografia">Escreva uma sua biografia: <span class="ast">*</span></label>
         <textarea name="biografia" id="biografia" cols="50" rows="10" maxlength="1000"></textarea>
 
 
@@ -126,17 +127,41 @@ function voltar() {
 
     <div class="resposta">
         <h1>Resposta</h1>
-        <p>Nome: {{ name }}</p>
-        <p>Email: {{ email }}</p>
-        <p>Senha: {{ senha }}</p>
-        <p>Confirme: {{ confirme }}</p>
-        <p>Nascimento: {{ nascimento }}</p>
-        <p>Adress: {{ adress }}</p>
-        <p>Cidade: {{ cidade }}</p>
-        <p>Estado: {{ estado }}</p>
-        <p>Hobbies: {{ hobbies }}</p>
-        <p>Linguagens: {{ linguagens }}</p>
-        <p>Biografia: {{ biografia }}</p>
+        <div class="pdiv">
+            <div class="p">
+                <p>Nome: {{ name }}</p>
+            </div>
+            <div class="p">
+                <p>Email: {{ email }}</p>
+            </div>
+            <div class="p">
+                <p>Senha: {{ senha }}</p>
+            </div>
+            <div class="p">
+                <p>Confirme: {{ confirme }}</p>
+            </div>
+            <div class="p">
+                <p>Nascimento: {{ nascimento }}</p>
+            </div>
+            <div class="p">
+                <p>Adress: {{ adress }}</p>
+            </div>
+            <div class="p">
+                <p>Cidade: {{ cidade }}</p>
+            </div>
+            <div class="p">
+                <p>Estado: {{ estado }}</p>
+            </div>
+            <div class="p">
+                <p>Hobbies: {{ hobbies }}</p>
+            </div>
+            <div class="p">
+                <p>Linguagens: {{ linguagens }}</p>
+            </div>
+            <div class="p">
+                <p>Biografia: {{ biografia }}</p>
+            </div>
+        </div>
         <input id="voltar" type="submit" value="Voltar" @click="voltar">
     </div>
 
@@ -152,6 +177,10 @@ function voltar() {
     flex-direction: column;
     margin-top: 50px;
     width: 200%;
+    background-color: #161616;
+    border-radius: 25px;
+    margin-bottom: 10%;
+
 }
 
 .poppins-light {
@@ -165,20 +194,25 @@ input {
     padding: 5px;
     height: 30px;
     margin-left: 25%;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 1px solid #000;
     margin-top: 2px;
     margin-bottom: 10px;
     font-family: "Poppins", sans-serif;
     font-weight: 5 00;
     font-style: normal;
-    font-size: 1px;
+    font-size: 15px;
 
 }
 
 label {
     margin-left: 25%;
     margin-top: 10px;
+    color: #fff
+}
+
+.ast {
+    color: red;
 }
 
 select {
@@ -190,28 +224,66 @@ select {
 }
 
 button[type="submit"] {
-    width: 50%;
+    width: 30%;
     height: 30px;
     margin-top: 3%;
-    margin-left: 25%;
-    border-radius: 5px;
+    margin-left: 35%;
+    margin-bottom: 3%;
+    border-radius: 20px;
     border: 1px solid #000;
-    background-color: #000;
+    background-color: #ff0062;
     color: #fff;
 }
 
-option,
 select {
-    background-color: purple;
+    border-radius: 15px;
+    padding: 5px;
 }
 
 textarea {
     resize: none;
+    border-radius: 15px;
     width: 50%;
     margin-left: 25%
 }
 
 .resposta {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 200%;
+    background-color: #161616;
+
+    border-radius: 25px;
+    margin-bottom: 10%;
     display: none;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    margin-left: 0%;
+}
+
+.resposta input {
+    background-color: #ff0062;
+    color: white;
+    margin-left: 0
+}
+
+.resposta .pdiv {
+    width: 100%
+}
+
+.resposta .p {
+    background-color: white;
+    color: black;
+    width: 80%;
+    margin-bottom: 20px;
+    margin-left: 10%;
+    border-radius: 10px;
+}
+
+.resposta h1 {
+    font-weight: bold;
+    margin-bottom: 5%
 }
 </style>

@@ -92,7 +92,8 @@ function voltar() {
         <input id="confirme" type="password" required>
 
         <label for="nascimento">Informe sua data de nascimento: <span class="ast">*</span></label>
-        <input id="nascimento" type="date" required>
+        <input id="nascimento" type="date"  min="1900-01-31" max="2024-12-31" required>
+        
 
         <label for="adress">Informe seu endereço: <span class="ast">*</span></label>
         <input id="adress" type="text" required>

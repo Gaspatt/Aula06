@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onBeforeUpdate } from 'vue'
 
 const name = ref('')
 const email = ref('')
@@ -12,6 +12,8 @@ const estado = ref('')
 const hobbies = ref('')
 const linguagens = ref('')
 const biografia = ref('')
+
+
 
 
 
@@ -30,6 +32,24 @@ function submit() {
         adress.value = document.querySelector('#adress').value
         cidade.value = document.querySelector('#cidade').value
         estado.value = document.querySelectorAll('#estado option')[document.querySelector('#estado').selectedIndex].text
+        hobbies.value = ''
+        if (document.querySelector('#filmes').checked) {
+            hobbies.value += 'Filmes, '
+        }
+        if (document.querySelector('#livros').checked) {
+            hobbies.value += 'Livros, '
+        }
+        if (document.querySelector('#jogos').checked) {
+            hobbies.value += 'Jogos, '
+        }
+        if (document.querySelector('#comidas').checked) {
+            hobbies.value += 'Comidas, '
+        }
+        if (document.querySelector('#lugares').checked) {
+            hobbies.value += 'Lugares '
+        }
+
+
         hobbies.value = document.querySelector('#hobbies').value
         linguagens.value = document.querySelector('#linguagens').value
         biografia.value = document.querySelector('#biografia').value
@@ -39,17 +59,17 @@ function submit() {
 function voltar() {
     document.querySelector('.form').style.display = 'flex'
     document.querySelector('.resposta').style.display = 'none'
-    document.querySelector('#name').value = ''
-    document.querySelector('#email').value = ''
-    document.querySelector('#senha').value = ''
-    document.querySelector('#confirme').value = ''
-    document.querySelector('#nascimento').value = ''
-    document.querySelector('#adress').value = ''
-    document.querySelector('#cidade').value = ''
-    document.querySelector('#estado').value = ''
-    document.querySelector('#hobbies').value = ''
-    document.querySelector('#linguagens').value = ''
-    document.querySelector('#biografia').value = ''
+    document.querySelector('#name').value
+    document.querySelector('#email').value
+    document.querySelector('#senha').value
+    document.querySelector('#confirme').value
+    document.querySelector('#nascimento').value
+    document.querySelector('#adress').value
+    document.querySelector('#cidade').value
+    document.querySelector('#estado').value
+    document.querySelector('#hobbies').value
+    document.querySelector('#linguagens').value
+    document.querySelector('#biografia').value
 }
 
 
@@ -113,20 +133,32 @@ function voltar() {
 
         <label for="hobbies">Informe seu hobbie favorito: <span class="ast">*</span>
         </label>
-        <input id="hobbies" type="text" required>
+
+        <div class="checkbox">
+            <input id="filmes" type="checkbox" value="Filmes">
+            Filmes
+            <input id="livros" type="checkbox" value="Livros">
+            Livros
+            <input id="jogos" type="checkbox" value="Jogos">
+            Jogos
+            <input id="comidas" type="checkbox" value="Comidas">
+            Comidas
+            <input id="lugares" type="checkbox" value="Lugares">
+            Lugares
+        </div>
 
         <label for="linguagens">Informe as linguagens de programacão que você domina: <span class="ast">*</span></label>
-        <input id="linguagens" type="text" required>
+        <input id="linguagens" type="text" v-model="linguagens" required>
 
         <label for="biografia">Escreva uma sua biografia: <span class="ast">*</span></label>
-        <textarea name="biografia" id="biografia" cols="50" rows="10" maxlength="1000"></textarea>
+        <textarea name="biografia" id="biografia" cols="50" rows="10" maxlength="1000" v-model="biografia"></textarea>
 
 
         <button type="submit">Enviar </button>
     </form>
 
     <div class="resposta">
-        <h1>Resposta</h1>
+        <h1>Informações do usuário</h1>
         <div class="pdiv">
             <div class="p">
                 <p>Nome: {{ name }}</p>
@@ -158,7 +190,7 @@ function voltar() {
             <div class="p">
                 <p>Linguagens: {{ linguagens }}</p>
             </div>
-            <div class="p">
+            <div class="p" id="rbio">
                 <p>Biografia: {{ biografia }}</p>
             </div>
         </div>

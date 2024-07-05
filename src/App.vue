@@ -1,5 +1,5 @@
-<script setup>
-import { ref, onBeforeUpdate } from 'vue'
+np<script setup>
+import { ref } from 'vue'
 
 const name = ref('')
 const email = ref('')
@@ -78,29 +78,37 @@ function voltar() {
 
 <template>
     <form class="form" @submit.prevent="submit">
+
+        <div class="h1"><h1>Formulário de Cadastro</h1></div>
+        <div class="divmain divv">
         <label for="name">Informe seu nome: <span class="ast">*</span></label>
-        <input id="name" type="text" required min="3" max="100">
+        <input id="name" type="text" required min="3" max="100"></div>
 
-
+        <div class="divmain">
         <label for="email">Informe seu e-mail: <span class="ast">*</span></label>
-        <input id="email" type="email" required>
+        <input id="email" type="email" required></div>
 
+        <div class="divmain">
         <label for="senha">Informe sua senha: <span class="ast">*</span></label>
-        <input id="senha" type="password" required>
+        <input id="senha" type="password" required></div>
 
+        <div class="divmain">
         <label for="confirme">Confirme sua senha: <span class="ast">*</span></label>
-        <input id="confirme" type="password" required>
+        <input id="confirme" type="password" required></div>
 
+        <div class="divmain">
         <label for="nascimento">Informe sua data de nascimento: <span class="ast">*</span></label>
-        <input id="nascimento" type="date"  min="1900-01-31" max="2024-12-31" required>
+        <input id="nascimento" type="date"  min="1900-01-31" max="2024-12-31" required></div>
         
-
+        <div class="divmain">
         <label for="adress">Informe seu endereço: <span class="ast">*</span></label>
-        <input id="adress" type="text" required>
+        <input id="adress" type="text" required></div>
 
+        <div class="divmain">
         <label for="cidade">Informe sua cidade: <span class="ast">*</span></label>
-        <input id="cidade" type="text" required>
+        <input id="cidade" type="text" required></div>
 
+        <div class="divmain">
         <label for="estado">Informe seu estado: <span class="ast">*</span></label>
         <select id="estado" name="estado" required>
             <option value="AC">Acre</option>
@@ -130,11 +138,13 @@ function voltar() {
             <option value="SP">São Paulo</option>
             <option value="SE">Sergipe</option>
             <option value="TO">Tocantins</option>
-        </select>
+        </select></div>
 
+        <div class="divmain">
         <label for="hobbies">Informe seu hobbie favorito: <span class="ast">*</span>
-        </label>
+        </label></div>
 
+        <div class="divmain">
         <div class="checkbox">
             <input id="filmes" type="checkbox" value="Filmes">
             Filmes
@@ -146,20 +156,22 @@ function voltar() {
             Comidas
             <input id="lugares" type="checkbox" value="Lugares">
             Lugares
-        </div>
+        </div></div>
 
+        <div class="divmain">
         <label for="linguagens">Informe as linguagens de programacão que você domina: <span class="ast">*</span></label>
-        <input id="linguagens" type="text" v-model="linguagens" required>
+        <input id="linguagens" type="text" v-model="linguagens" required></div>
 
+        <div class="divmain">
         <label for="biografia">Escreva uma sua biografia: <span class="ast">*</span></label>
-        <textarea name="biografia" id="biografia" cols="50" rows="10" maxlength="1000" v-model="biografia"></textarea>
+        <textarea name="biografia" id="biografia" cols="50" rows="10" maxlength="1000" v-model="biografia"></textarea></div>
 
 
         <button type="submit">Enviar </button>
     </form>
 
     <div class="resposta">
-        <h1>Informações do usuário</h1>
+        <div class="h1"><h1>Informações do usuário</h1></div>
         <div class="pdiv">
             <div class="p">
                 <p>Nome: {{ name }}</p>
@@ -205,15 +217,52 @@ function voltar() {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+body {
+    background-color: white;
+}
+
+.checkbox{
+   color: rgb(255, 255, 255);
+   width: 70%;
+   margin-left: 12%;
+   font-size: 17px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bolder;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+ h1 {
+    font-weight: bold;
+ }
+
 .form {
     display: flex;
     flex-direction: column;
+    box-shadow: 2px 5px 25px 25px rgba(0, 0, 0, 0.281);
     margin-top: 50px;
     width: 200%;
-    background-color: #161616;
+    background-color: #38005e83;
     border-radius: 25px;
     margin-bottom: 10%;
 
+}
+
+.checkbox input {
+    margin-left: 8%;
+}
+
+.divv {
+    border-radius: 25px;
 }
 
 .poppins-light {
@@ -223,10 +272,11 @@ function voltar() {
 }
 
 input {
-    width: 50%;
+    width: 70%;
     padding: 5px;
     height: 30px;
-    margin-left: 25%;
+    margin-left: 15%;
+    margin-bottom: 4vh;
     border-radius: 15px;
     border: 1px solid #000;
     margin-top: 2px;
@@ -239,33 +289,46 @@ input {
 }
 
 label {
-    margin-left: 25%;
+    margin-left: 15%;
     margin-top: 10px;
-    color: #fff
+    color: #fff;
+    margin-bottom: 1vh;
+    font-size: 18px;
 }
+
+
 
 .ast {
     color: red;
 }
 
 select {
-    width: 50%;
+    width: 70%;
     height: 30px;
-    margin-left: 25%;
+    margin-left: 15%;
     border-radius: 5px;
     border: 1px solid #000;
 }
 
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    justify-content: center;
+}
+
 button[type="submit"] {
     width: 30%;
-    height: 30px;
+    height: 5vh;
     margin-top: 3%;
     margin-left: 35%;
+    font-size: 20px;
     margin-bottom: 3%;
     border-radius: 20px;
     border: 1px solid #000;
-    background-color: #ff0062;
+    background-color: #440e75;
     color: #fff;
+    cursor: pointer;
 }
 
 select {
@@ -273,11 +336,15 @@ select {
     padding: 5px;
 }
 
+option {
+    cursor: pointer;
+}
+
 textarea {
     resize: none;
     border-radius: 15px;
-    width: 50%;
-    margin-left: 25%
+    width: 70%;
+    margin-left: 15%
 }
 
 .resposta {
@@ -285,8 +352,8 @@ textarea {
     flex-direction: column;
     margin-top: 50px;
     width: 200%;
-    background-color: #161616;
-
+    background-color: #38005e83;
+    box-shadow: 2px 5px 25px 25px rgba(0, 0, 0, 0.281);
     border-radius: 25px;
     margin-bottom: 10%;
     display: none;
@@ -296,27 +363,30 @@ textarea {
     margin-left: 0%;
 }
 
-.resposta input {
-    background-color: #ff0062;
+.resposta input { 
+    background-color: #440e75;
     color: white;
+    height: 5vh;
     margin-left: 0
 }
 
 .resposta .pdiv {
-    width: 100%
+    width: 100%;
 }
 
 .resposta .p {
     background-color: white;
     color: black;
-    width: 80%;
+    width: 70%;
     margin-bottom: 20px;
-    margin-left: 10%;
+    height: 3vh;
+    margin-left: 15%;
     border-radius: 10px;
 }
 
 .resposta h1 {
     font-weight: bold;
-    margin-bottom: 5%
+    margin-bottom: 5%;
+    margin-top: 3%;
 }
 </style>

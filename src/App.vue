@@ -228,38 +228,39 @@ function voltar() {
             <h1>Informações do usuário</h1>
         </div>
         <div class="pdiv">
+            
             <div class="p">
-                <p>Nome: {{ name }}</p>
+                <p>Nome: <span> {{ name }}</span></p>
             </div>
             <div class="p">
-                <p>Email: {{ email }}</p>
+                <p>Email: <span> {{ email }}</span></p>
             </div>
             <div class="p">
-                <p>Senha: {{ senha }}</p>
+                <p>Senha: <span>{{ senha }}</span></p>
             </div>
             <div class="p">
-                <p>Confirme: {{ confirme }}</p>
+                <p>Confirmação de senha: <span> {{ confirme }} </span></p>
             </div>
             <div class="p">
-                <p>Nascimento: {{ nascimento }}</p>
+                <p>Nascimento: <span> {{ nascimento }} </span></p>
             </div>
             <div class="p">
-                <p>Adress: {{ adress }}</p>
+                <p>Endereço: <span> {{ adress }}</span></p>
             </div>
             <div class="p">
-                <p>Cidade: {{ cidade }}</p>
+                <p>Cidade: <span> {{ cidade }} </span></p>
             </div>
             <div class="p">
-                <p>Estado: {{ estado }}</p>
+                <p>Estado: <span> {{ estado }} </span></p>
             </div>
             <div class="p">
-                <p>Hobbies: {{ hobbies }}</p>
+                <p>Hobbies: <span> {{ hobbies }} </span></p>
             </div>
             <div class="p">
-                <p>Linguagens: {{ linguagens }}</p>
+                <p>Linguagens: <span> {{ linguagens }} </span></p>
             </div>
             <div class="p" id="rbio">
-                <p>Biografia: {{ biografia }}</p>
+                <p>Biografia: <span> {{ biografia }} </span></p>
             </div>
         </div>
         <input id="voltar" type="submit" value="Voltar" @click="voltar">
@@ -277,10 +278,14 @@ body {
     background-color: white;
 }
 
+span {
+    font-weight: bold;
+}
+
 .checkbox {
     color: rgb(255, 255, 255);
     width: 50%;
-    margin-left: 12%;
+    margin-left: 15%;
     display: flex;
     align-items: end;
 }
@@ -384,10 +389,7 @@ select {
 }
 
 .checkbox {
-    display: flex;
-    flex-direction: row;
-    cursor: pointer;
-    justify-content: center;
+    
 }
 
 .botoes {
@@ -454,6 +456,19 @@ textarea {
 
 #rbio {
     height: 10vh;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 70%;
+    margin-left: 15%;
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    text-indent: 10px;
+    text-align: justify;
+    
 }
 
 .resposta input {
@@ -472,9 +487,11 @@ textarea {
     color: black;
     width: 70%;
     margin-bottom: 20px;
-    height: 3vh;
+    height: 5vh;
     margin-left: 15%;
     border-radius: 10px;
+    text-align: justify;
+    text-indent: 15px;
 }
 
 .resposta h1 {
